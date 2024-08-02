@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: "Noto Sans Thai", sans-serif;
+    font-optical-sizing: auto;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #232323;
+    height: 100vh;
+    margin: 0;
+}
+
+.container-head{
+    width: 50%;
+    background-color: #08AEEA;
+    background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    border-radius: 10px;
+    margin: 0;
+    text-align: center;
+    position: relative;
+}
+
+.container-head h1 {
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
+
+.money-img {
+    width: 30%;
+    height: auto;
+}
+
+.btn{
+    color: #fff;
+    background-color: orange;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 10px white;
+    font-size: 16px;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.currency {
+    padding: 5% 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  
+}   
+
+.currency select{
+    padding:10px 20px 10px 20px;
+    border: 1px solid #d1d1d1;
+    font-size: 16px;
+    background: white;
+    appearance: none;
+    border-radius: 10px;
+    text-align: center;
+    
+}
+
+.currency input {
+    border: none;
+    margin-top: 5px;
+    border-radius: 20px;
+    font-size: 30px;
+    width: 100%;
+}
+.swap-container{
+    display: inline-block;
+    align-items: center;
+}
+.rate{
+    font-size: 20px;
+    padding: 0px 10px;
+}
+select:focus,input:focus,button:focus{
+    outline: 0;
+}
