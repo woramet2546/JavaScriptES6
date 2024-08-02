@@ -23,16 +23,31 @@ function calculateMoney(){
     .then(res=>res.json()).then(data=>{
         const rate=data.rates[two]
         rateText.innerText=`1 ${one} = ${rate}${two}`;
-        amount_two.value=(amount_one.value*rate);
+        amount_two.value = (amount_one.value * rate).toFixed(2);
     })
 
     // ขั้นตอนการส้รางสลับสกุลเงิน
 }
-swap.addEventListener('click',()=>{
-    const temp = currency_one.value; //ต้นทาง
+
+function reverseCalculateMoney() {
+    const one = currency_one.value;
+    const two = currency_two.value;
+    fetch(`https://api.exchangerate-api.com/v4/latest/${two}`)
+        .then(res => res.json())
+        .then(data => {
+            const rate = data.rates[one];
+            rateText.innerText = `1 ${two} = ${rate} ${one}`;
+            amount_one.value = (amount_two.value * rate).toFixed(2);
+        });
+}
+swap.addEventListener('click', () => {
+    // สลับค่าสกุลเงิน
+    const tempCurrency = currency_one.value;
     currency_one.value = currency_two.value;
-    currency_two.value = temp;
-    calculateMoney();
-})
+    currency_two.value = tempCurrency;
+
+    // สลับค่าของจำนวนเงินในช่อง input โดยใช้การคำนวณย้อนกลับ
+    reverseCalculateMoney();
+});
 
 calculateMoney();
