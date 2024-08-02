@@ -61,21 +61,29 @@ body{
 
 .currency select{
     padding:10px 20px 10px 20px;
-    border: 1px solid #d1d1d1;
+    border: 2px solid #ffffff;
     font-size: 16px;
-    background: white;
+    background: rgb(75, 255, 51);
+    color: white;
     appearance: none;
     border-radius: 10px;
     text-align: center;
     
 }
 
+option{
+    background:white;
+    color: black;
+}
+
 .currency input {
     border: none;
+    text-align: right;
+    padding-left: 10px;
     margin-top: 5px;
     border-radius: 20px;
     font-size: 30px;
-    width: 100%;
+    width: 80%;
 }
 .swap-container{
     display: inline-block;
@@ -83,7 +91,7 @@ body{
 }
 .rate{
     font-size: 20px;
-    padding: 0px 10px;
+    margin: 10px 0 0 0;
 }
 select:focus,input:focus,button:focus{
     outline: 0;
