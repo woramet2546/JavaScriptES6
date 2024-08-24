@@ -1,0 +1,5 @@
+Run Server
+npx nodemon --exec ts-node index.ts
+
+API
+http://localhost:3000/latest

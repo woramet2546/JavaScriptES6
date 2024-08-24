@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>ข้อมูลน้ำมัน ณ วันที่ : <span id="date"></span></h3>
+    <div id="overview"></div>
+
+    <script>
+      getOil();
+      function getOil() {
+        var data = [];
+        var dateElement = document.getElementById("date");
+        var overviewElement = document.getElementById("overview");
+        var categoryLogo = {
+          ptt: {
+            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu10r2f8a4ZZsjx5R5zk5k1JoDi_eHD5uI_g&s",
+          },
+        };
+    
+        fetch("https://oil-api.vercel.app/latest")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                "Network response was not ok" + response.statusText
+              );
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const { date, stations } = data.response;
+            // console.log("stations ==>", stations['ptt']);
+            dateElement.innerHTML = date;
+            for (var company in stations) {
+              var stationData = stations[company];
+              var companyLogo = categoryLogo[company] ? categoryLogo[company].url : '';
+              var logoImg = companyLogo ? `<img src="${companyLogo}" width="30">` : '';
+              overviewElement.innerHTML +=
+                "<strong>" +
+                company.toUpperCase() +
+                `</strong>&nbsp;&nbsp;${logoImg}<br/>`;
+              // console.log(stationData)
+              for (var key in stationData) {
+                var fuel = stationData[key];
+                overviewElement.innerHTML +=
+                  "<ol>" + fuel.name + " ราคา " + fuel.price + "</ol>";
+                overviewElement.innerHTML += "</ul>";
+              }
+            }
+          });
+      }
+    </script>
+  </body>
+</html>
