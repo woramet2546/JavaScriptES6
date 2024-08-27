@@ -1,5 +1,3 @@
-Run Server
-npx nodemon --exec ts-node index.ts
+API [https://oil-api.vercel.app/latest]
 
-API
-http://localhost:3000/latest
+OilCopy.html เป็นการลูปข้อความเป็นแนวนอน

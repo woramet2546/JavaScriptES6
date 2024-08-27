@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oil Prices</title>
+    <link rel="stylesheet" href="Oli.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <h3 class="alert alert-success text-center">ข้อมูลน้ำมัน ณ วันที่ : <span id="date"></span></h3>
+
+    <table class="table">
+        <thead class="table-dark">
+            <tr id="table-headers">
+                <!-- Headers will be inserted here -->
+            </tr>
+        </thead>
+        <tbody id="oil-table-body">
+            <tr>
+                <td>m</td>
+                <td>m</td>
+            </tr>
+            <!-- Table rows will be inserted here -->
+        </tbody>
+    </table>
+    <script>
+        const tablehead =document.getElementById('table-headers');
+        const inputhead ='<th>สินค้า</th>';
+        tablehead.append(inputhead)
+    </script>
+    <!-- <script>
+      getOil(); // เรียกใช้งานฟังก์ชัน getOil() เมื่อเพจโหลดเสร็จ
+
+      function getOil() {
+        var dateElement = document.getElementById("date"); // เข้าถึงแท็ก <span> ที่มี id="date" เพื่อใช้ในการแสดงวันที่
+
+
+        fetch("https://oil-api.vercel.app/latest") // ดึงข้อมูลจาก API ที่ให้ข้อมูลน้ำมันล่าสุด
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok" + response.statusText);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const { date, stations } = data.response; // ดึงข้อมูลวันที่และข้อมูลสถานี
+            dateElement.innerHTML = date; // แสดงวันที่ใน element ที่มี id="date"
+            console.log("API Data:", data); // แสดงข้อมูลทั้งหมดใน console
+
+            var tableBody = document.getElementById("oil-table-body");
+            var headersRow = document.getElementById("table-headers");
+
+            // สร้างหัวตาราง
+            var headerIndex = document.createElement("th");
+            headerIndex.textContent = "ชื่อน้ำมัน";
+            headersRow.appendChild(headerIndex);
+
+            // Loop ผ่านข้อมูลบริษัทใน oilCompanies และสร้าง <th> สำหรับแต่ละบริษัท
+            for (var company in oilCompanies) {
+              var headerCompany = document.createElement("th");
+              headerCompany.textContent = oilCompanies[company];
+              headersRow.appendChild(headerCompany);
+            }
+
+            // สร้างแถวข้อมูลน้ำมัน
+            var fuelTypes = new Set();
+            for (var company in oilCompanies) {
+              var companyName = oilCompanies[company];
+              var stationData = stations[companyName];
+              if (!stationData) continue; // ข้ามบริษัทที่ไม่มีข้อมูล
+
+              for (var key in stationData) {
+                var fuel = stationData[key];
+                fuelTypes.add(fuel.name); // เพิ่มชื่อประเภทน้ำมันลงใน set
+              }
+            }
+
+            // สร้างแถวสำหรับแต่ละประเภทน้ำมัน
+            fuelTypes.forEach(fuelType => {
+              var row = tableBody.insertRow();
+
+              // สร้างเซลล์ในแถวสำหรับชื่อน้ำมัน
+              var cellFuelName = row.insertCell(0);
+              cellFuelName.textContent = fuelType;
+
+              // สร้างเซลล์ในแถวสำหรับราคาในแต่ละบริษัท
+              for (var company in oilCompanies) {
+                var companyName = oilCompanies[company];
+                var stationData = stations[companyName];
+                var cellFuelPrice = row.insertCell();
+                if (stationData) {
+                  var fuelData = stationData.find(fuel => fuel.name === fuelType);
+                  cellFuelPrice.textContent = fuelData ? fuelData.price + " บาท" : "ไม่มีข้อมูล";
+                } else {
+                  cellFuelPrice.textContent = "ไม่มีข้อมูล";
+                }
+              }
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching data: ", error); // แสดงข้อผิดพลาดใน console
+          });
+      }
+    </script> -->
+</body>
+</html>
