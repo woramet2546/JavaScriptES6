@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Weather API</title>
+    <link rel="stylesheet" href="styleweathers.css" />
+    <style>
+      * {
+        margin: 0;
+      }
+      .container-nav {
+        background: linear-gradient(#31363f, #222831);
+        margin: 0;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .navbar-nav{
+        display: flex;
+        justify-content: center;
+      }
+      .navbar-nav ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .navbar-nav li{
+        list-style: none;
+        margin-left: 15px;
+      }
+
+      .navbar-nav li a{
+        text-decoration: none;
+        color:white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-nav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">เปลี่ยนสกุลเงิน</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Weather.html">ตรวจสภาพอากาศ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Gold.php">ราคาทอง</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Oil.php">เช็คราคาน้ำมัน</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="bitcoin.php">ราคาเหรียญBTC</a>
+        </li>
+      </ul>
+    </div>
+
+<div class="container">
+    <main>
+        <header>
+          <h1>Weather API</h1>
+          <form id="form">
+            <input type="text" placeholder="search city name" id="search" />
+            <button type="submit">Search</button>
+          </form>
+        </header>
+        <section>
+          <div id="location">
+            <img width="100px" height="100px" id="weatherIcon" class="img"/>
+            <h1 id="city">Bangkok</h1>
+            <p id="state">TH</p>
+          </div>
+          <div id="card">
+            <div id="weather">
+              <h1>35</h1>
+              <small>max : 37, min : 21</small>
+              <p>อ้างอิงจาก<a style="color: rgb(110, 255, 66);" href="https://openweathermap.org/current">https://openweathermap.org/current</a></p>
+            </div>
+            <div id="info">
+              <div id="status">Hot</div>
+              <div id="humidity">100</div>
+              <div id="wind">4.0</div>
+            </div>
+          </div>
+        </section>
+      </main>
+  
+</div>
+    <script src="Weatherscript.js"></script>
+  </body>
+</html>

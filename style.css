@@ -30,8 +30,7 @@
     color: white;
 }
 
-.container-head{
-    width: 100%;
+.container-smm{
     background-color: #08AEEA;
     background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
     display: flex;
@@ -73,17 +72,14 @@
   
 }   
 
-.currency select{
-    padding:10px 20px 10px 20px;
-    border: 2px solid #ffffff;
-    font-size: 16px;
-    background: rgb(75, 255, 51);
-    color: white;
-    appearance: none;
-    border-radius: 10px;
-    text-align: center;
-    
-}
+.api a {
+    color: rgb(255, 63, 63); /* สีของลิงก์ที่ต้องการ */
+    text-decoration: none; /* ลบเส้นใต้ของลิงก์ */
+  }
+
+  .api a:hover {
+    text-decoration: underline; /* แสดงเส้นใต้เมื่อโฮเวอร์ (ถ้าต้องการ) */
+  }
 
 option{
     background:white;
