@@ -58,7 +58,38 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
         body {
             color: black;
         }
+
+        .dt-column-order {
+            color: black;
+        }
+
+        #dt-search-0,
+        #example_info {
+            color: white;
+        }
+
+        label {
+            color: white;
+        }
+
+        nav {
+            color: white;
+        }
     </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/2.1.4/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.1/js/dataTables.buttons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.print.min.js"></script>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.1.1/css/buttons.dataTables.css">
+
 
 </head>
 
@@ -68,28 +99,28 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
     </button>
 
     <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">เปลี่ยนสกุลเงิน</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Weather.html">ตรวจสภาพอากาศ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Gold.php">ราคาทอง</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Oil.php">เช็คราคาน้ำมัน</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="bitcoin.php">ราคาเหรียญBTC</a>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">เปลี่ยนสกุลเงิน</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Weather.html">ตรวจสภาพอากาศ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Gold.php">ราคาทอง</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Oil.php">เช็คราคาน้ำมัน</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="bitcoin.php">ราคาเหรียญBTC</a>
 
-        </li>
-      </ul>
+            </li>
+        </ul>
     </div>
 </nav>
 
-<body class="">
+<body class="bg-dark bg-gradient">
     <div class="container-sm">
         <?php
         // echo "<pre>";
@@ -135,7 +166,7 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
         </div>
 
 
-        <table class="table table-bordered text-center" id="myTable">
+        <table class="table table-bordered text-center bg-light bg-gradient" id="example">
             <thead class="">
                 <tr id="table-headers border">
                     <td class="col-sm-2"></td>
@@ -165,7 +196,7 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
                                 <br>
                                 <!-- ขั้นตอนที่5 echo ออกมารูปในตาราง -->
                                 <span style="color:black;">
-                                    <?php echo $nickname;?> 
+                                    <?php echo $nickname; ?>
                                     <!-- แสดงชื่อที่ อัพเดท -->
                                 </span>
                             </th>
@@ -229,11 +260,26 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="//cdn.datatables.net/2.1.4/js/dataTables.min.js"></script>
+
     <script>
-        let table = new DataTable('#myTable');
+        $(document).ready(function() {
+            new DataTable('#example', {
+                layout: {
+                    topStart: {
+                        buttons: ['copy', 
+                        {
+                            extend: 'csv',
+                            text: 'CSV',
+                            bom: true, // เพื่อให้ใช้ UTF-8 โดยอัตโนมัติ
+                            charset: 'utf-8'
+                        },
+                         'excel', 'pdf', 'print']
+                    }
+                }
+            });
+        });
     </script>
+
 </body>
 
 </html>

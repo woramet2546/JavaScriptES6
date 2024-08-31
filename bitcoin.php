@@ -59,7 +59,7 @@ curl_close($ch);
     }
 
     /*  */
-    html body {
+    html body{
       color: white;
     }
 
@@ -68,8 +68,27 @@ curl_close($ch);
       background: black;
     }
 
+
     /*  */
   </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="//cdn.datatables.net/2.1.4/css/dataTables.dataTables.min.css">
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/2.1.4/js/dataTables.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.1.1/js/dataTables.buttons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.print.min.js"></script>
+
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.dataTables.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.1.1/css/buttons.dataTables.css">
+
 </head>
 
 <body class="bg-dark bg-gradient">
@@ -102,9 +121,9 @@ curl_close($ch);
   </nav>
   <!--  -->
   <div class="container-sm">
-    <?php
-    echo "<table class='table table-bordered text-wrap display' id='myTable'>";
-    ?>
+
+    <table class='table table-bordered text-wrap' id='example'>
+   
 
     <thead>
       <h2 class="alert bg-warning bg-gradient text-center text-light">
@@ -115,7 +134,7 @@ curl_close($ch);
         ?>
 
       </h2>
-      <tr class="text-center bg-secondary bg-gradient">
+      <tr class="text-center bg-light bg-gradient">
         <td>Rank</td>
         <td>NameCoin</td>
         <th scope="col">Total</th>
@@ -124,7 +143,7 @@ curl_close($ch);
         <th scope="col">totalExchanges</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="bg-light bg-gradient">
       <?php
       include 'function_img_btc.php';
       foreach ($data['data']['coins'] as $coin) {
@@ -177,15 +196,21 @@ curl_close($ch);
 
     </tbody>
 
-    <?php
-    echo "</table>";
-    ?>
+   
+  </table>
+  
 
   </div>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="//cdn.datatables.net/2.1.4/js/dataTables.min.js"></script>
   <script>
-    let table = new DataTable('#myTable');
+     $(document).ready(function () {
+            new DataTable('#example', {
+                layout: {
+                    topStart: {
+                        buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+                    }
+                }
+            });
+        });
   </script>
 </body>
 
