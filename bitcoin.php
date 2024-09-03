@@ -111,8 +111,10 @@ curl_close($ch);
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link" href="bitcoin.php">ราคาเหรียญBTC</a>
-
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link" href="/database/index.php">Database</a>
+          </li>
       </ul>
     </div>
   </nav>
