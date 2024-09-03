@@ -273,13 +273,13 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
                             bom: true, // เพื่อให้ใช้ UTF-8 โดยอัตโนมัติ
                             charset: 'utf-8'
                         },
-                         'excel', 'pdf', 'print']
+                         'excel','print']
                     }
                 }
             });
         });
     </script>
-
+<a href="testapi.php">a</a>
 </body>
 
 </html>

@@ -4,13 +4,11 @@ $apiUrl = 'https://api.coinranking.com/v2/coins';
 $apiToken = 'coinrankingb51aea1c4c9ce04fdd2418e18aa382a4a869a8d74b20522a';
 
 // สร้าง cURL session
-$ch = curl_init();
-
-// ตั้งค่า cURL options
-curl_setopt($ch, CURLOPT_URL, $apiUrl);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-  'x-access-token: ' . $apiToken
+$ch = curl_init($apiUrl);
+curl_setopt_array($ch, [
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_HTTPHEADER => ['x-access-token: ' . $apiToken],
+  CURLOPT_CAINFO => 'C:/PHP/cacert.pem',  // ใส่ที่อยู่ของไฟล์ cacert.pem
 ]);
 
 // ดึงข้อมูลจาก API
@@ -90,7 +88,6 @@ curl_close($ch);
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.1.1/css/buttons.dataTables.css">
 
 </head>
-
 <body class="bg-dark bg-gradient">
   <!--  -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -206,7 +203,7 @@ curl_close($ch);
             new DataTable('#example', {
                 layout: {
                     topStart: {
-                        buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+                        buttons: ['copy', 'csv', 'excel','print']
                     }
                 }
             });

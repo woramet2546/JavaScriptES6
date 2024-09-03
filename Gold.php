@@ -2,8 +2,7 @@
 $api = "https://api.chnwt.dev/thai-gold-api/latest";
 $json = file_get_contents($api);
 $data = json_decode($json, true);
-// echo "<pre>";
-// print_r($data);
+
 $dataPrice = $data['response']['price'];
 
 ?>
