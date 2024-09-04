@@ -112,9 +112,6 @@ curl_close($ch);
         <li class="nav-item dropdown">
           <a class="nav-link" href="bitcoin.php">ราคาเหรียญBTC</a>
         </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link" href="/database/index.php">Database</a>
-          </li>
       </ul>
     </div>
   </nav>
@@ -197,7 +194,7 @@ curl_close($ch);
 
    
   </table>
-  
+    
 
   </div>
   <script>
@@ -205,7 +202,7 @@ curl_close($ch);
             new DataTable('#example', {
                 layout: {
                     topStart: {
-                        buttons: ['copy', 'csv', 'excel','print']
+                        buttons: ['copy','excel','pdf','print']
                     }
                 }
             });

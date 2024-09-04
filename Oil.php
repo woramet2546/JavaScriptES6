@@ -51,6 +51,14 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
     <link rel="stylesheet" href="//cdn.datatables.net/2.1.4/css/dataTables.dataTables.min.css">
 
     <style>
+        /* @import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+        * {
+            font-family: "Sarabun", sans-serif;
+            font-weight: 100;
+            font-style: normal;
+        } */
+
         .alert {
             margin: 0;
         }
@@ -76,19 +84,6 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
             color: white;
         }
     </style>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- DataTables JS -->
-    <script src="https://cdn.datatables.net/2.1.4/js/dataTables.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.1.1/js/dataTables.buttons.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.print.min.js"></script>
-
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.dataTables.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.1.1/css/buttons.dataTables.css">
 
 
 </head>
@@ -115,9 +110,6 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
             <li class="nav-item dropdown">
                 <a class="nav-link" href="bitcoin.php">ราคาเหรียญBTC</a>
             </li>
-            <li class="nav-item dropdown">
-            <a class="nav-link" href="/database/index.php">Database</a>
-          </li>
         </ul>
     </div>
 </nav>
@@ -262,26 +254,40 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
     </div>
 
 
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/2.1.4/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.1/js/dataTables.buttons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.print.min.js"></script>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.1.1/css/buttons.dataTables.css">
 
     <script>
         $(document).ready(function() {
             new DataTable('#example', {
                 layout: {
                     topStart: {
-                        buttons: ['copy', 
-                        {
-                            extend: 'csv',
-                            text: 'CSV',
-                            bom: true, // เพื่อให้ใช้ UTF-8 โดยอัตโนมัติ
-                            charset: 'utf-8'
-                        },
-                         'excel','print']
+                        buttons: ['copy',
+                            // {
+                            //     extend: 'csv',
+                            //     text: 'CSV',
+                            //     bom: true, // เพื่อให้ใช้ UTF-8 โดยอัตโนมัติ
+                            //     charset: 'utf-8'
+                            // },
+                            'excel', 'pdf', 'print'
+                        ]
                     }
                 }
             });
         });
     </script>
-<a href="testapi.php">a</a>
+    <a href="testapi.php">a</a>
 </body>
 
 </html>
