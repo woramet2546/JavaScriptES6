@@ -9,7 +9,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-  <a href="index.php" class="btn btn-secondary">หน้าหลัก</a>
+  <a href="index.php" class="btn btn-secondary">PHP INFO</a>
 </body>
 </html>
 <?php

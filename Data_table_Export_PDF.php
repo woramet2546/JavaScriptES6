@@ -45,9 +45,11 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Api ราคาน้ำมัน</title>
+    <title>Oil Prices</title>
     <link rel="stylesheet" href="Oli.css">
-    <link rel="stylesheet" href="/boostrap5/cdn_boostrap5.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.datatables.net/2.1.4/css/dataTables.dataTables.min.css">
+
     <style>
         /* @import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
@@ -254,18 +256,18 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
 
     <script src="datatable/jquery-3.7.1.min.js"></script>
     <!-- DataTables JS -->
-    <script src="datatable/214dataTables.js"></script>
-    <script src="datatable/cdn_datatable_button_311_js_dataTables.js"></script>
-    <script src="datatable/3101jszip.min.js"></script>
-    <script src="datatable/027pdfmake.min.js"></script>
-
+    <script src="https://cdn.datatables.net/2.1.4/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.1/js/dataTables.buttons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script> -->
     <script src="node_modules/pdfmake/th-sarabun.js"></script>
-    <script src="datatable/311button_html5.min.js"></script>
-    <script src="datatable/311jsbuttons_print_min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.print.min.js"></script>
 
     <!-- DataTables CSS -->
-    <link rel="stylesheet" href="datatable/cdn_datatables_net_214_css_dataTables_dataTables.css">
-    <link rel="stylesheet" href="datatable/cdn_datatables_net_buttons_311_css_buttons_dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.1.1/css/buttons.dataTables.css">
 
     
     <script>
