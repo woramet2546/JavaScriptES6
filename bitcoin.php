@@ -39,9 +39,8 @@ curl_close($ch);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="//cdn.datatables.net/2.1.4/css/dataTables.dataTables.min.css">
+  <title>API Coin</title>
+  <link rel="stylesheet" href="/boostrap5/cdn_boostrap5.css">
   <style>
     .my_custom {
       width: 25%;
@@ -69,23 +68,24 @@ curl_close($ch);
 
     /*  */
   </style>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="//cdn.datatables.net/2.1.4/css/dataTables.dataTables.min.css">
+  <link rel="stylesheet" href="/boostrap5/cdn_boostrap5.css">
+  <!-- <link rel="stylesheet" href="//cdn.datatables.net/2.1.4/css/dataTables.dataTables.min.css"> -->
 
 
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- DataTables JS -->
-  <script src="https://cdn.datatables.net/2.1.4/js/dataTables.js"></script>
-  <script src="https://cdn.datatables.net/buttons/3.1.1/js/dataTables.buttons.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-  <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.html5.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.print.min.js"></script>
+  <script src="datatable/jquery-3.7.1.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="datatable/214dataTables.js"></script>
+    <script src="datatable/cdn_datatable_button_311_js_dataTables.js"></script>
+    <script src="datatable/3101jszip.min.js"></script>
+    <script src="datatable/027pdfmake.min.js"></script>
 
-  <!-- DataTables CSS -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.dataTables.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.1.1/css/buttons.dataTables.css">
+    <script src="node_modules/pdfmake/th-sarabun.js"></script>
+    <script src="datatable/311button_html5.min.js"></script>
+    <script src="datatable/311jsbuttons_print_min.js"></script>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="datatable/cdn_datatables_net_214_css_dataTables_dataTables.css">
+    <link rel="stylesheet" href="datatable/cdn_datatables_net_buttons_311_css_buttons_dataTables.css">
 
 </head>
 <body class="bg-dark bg-gradient">
@@ -198,16 +198,37 @@ curl_close($ch);
 
   </div>
   <script>
-     $(document).ready(function () {
-            new DataTable('#example', {
-                layout: {
-                    topStart: {
-                        buttons: ['copy','excel','pdf','print']
-                    }
+    // กำหนดฟอนต์ให้กับ pdfMake
+    pdfMake.fonts = {
+        THSarabun: {
+            normal: 'THSarabun.woff',
+            bold: 'THSarabunBold.woff'
+        }
+    }
+
+    $(document).ready(function() {
+        new DataTable('#example', {
+            layout: {
+                topStart: {
+                    buttons: [
+                        'copy',
+                        'excel',
+                        {
+                            extend: 'pdf',
+                            customize: function(doc) {
+                                // ตั้งค่าให้ใช้ฟอนต์ THSarabun
+                                doc.defaultStyle = {
+                                    font: 'THSarabun'
+                                };
+                            }
+                        },
+                        'print'
+                    ]
                 }
-            });
+            }
         });
-  </script>
+    });
+</script>
 </body>
 
 </html>
