@@ -13,6 +13,7 @@ curl_setopt_array($ch, [
 
 // ดึงข้อมูลจาก API
 $response = curl_exec($ch);
+print_r($response);
 
 // ตรวจสอบว่ามีข้อผิดพลาดหรือไม่
 if (curl_errno($ch)) {
@@ -72,20 +73,21 @@ curl_close($ch);
   <!-- <link rel="stylesheet" href="//cdn.datatables.net/2.1.4/css/dataTables.dataTables.min.css"> -->
 
 
-  <script src="datatable/jquery-3.7.1.min.js"></script>
-    <!-- DataTables JS -->
-    <script src="datatable/214dataTables.js"></script>
-    <script src="datatable/cdn_datatable_button_311_js_dataTables.js"></script>
-    <script src="datatable/3101jszip.min.js"></script>
-    <script src="datatable/027pdfmake.min.js"></script>
-
+   <!-- Jquery -->
+   <script src="datatable/jquery_371.js"></script>
+    <!-- Data_table Js -->
+    <script src="datatable/dataTables.js"></script>
+    <script src="datatable/dataTables_buttons.js"></script>
+    <script src="datatable/buttons_dataTables.js"></script>
+    <script src="datatable/jszip_min.js"></script>
+    <script src="datatable/pdfmake_min.js"></script>
+    <script src="datatable/buttons_html5_min.js"></script>
+    <script src="datatable/buttons_print_min.js"></script>
+    <!-- Font Thai -->
     <script src="node_modules/pdfmake/th-sarabun.js"></script>
-    <script src="datatable/311button_html5.min.js"></script>
-    <script src="datatable/311jsbuttons_print_min.js"></script>
-
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" href="datatable/cdn_datatables_net_214_css_dataTables_dataTables.css">
-    <link rel="stylesheet" href="datatable/cdn_datatables_net_buttons_311_css_buttons_dataTables.css">
+    <!-- Data_table Css -->
+    <link rel="stylesheet" href="datatable/dataTables_dataTables.css">
+    <link rel="stylesheet" href="datatable/buttons_dataTables.css">
 
 </head>
 <body class="bg-dark bg-gradient">

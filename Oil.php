@@ -251,37 +251,22 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
         </table>
     </div>
 
-    <!-- ฟอนต์ภาษาไทย -->
-    <script src="node_modules/pdfmake/th-sarabun.js"></script>
 
     <!-- Jquery -->
-    <script src="datatable/jquery-3.7.1.min.js"></script>
-
-    <!-- DataTables Css-->
-    <link rel="stylesheet" href="/node_modules/datatables.net-dt/css/dataTables.dataTables.css">
-    <link rel="stylesheet" href="/node_modules/datatables.net-dt/css/dataTables.dataTables.min.css">
-
-    <!-- DataTables Js -->
-    <script src="/node_modules/datatables.net-dt/js/dataTables.dataTables.js"></script>
-    <script src="/node_modules/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
-    <script src="/node_modules/datatables.net-dt/js/dataTables.dataTables.min.mjs"></script>
-    <script src="/node_modules/datatables.net-dt/js/dataTables.dataTables.mjs"></script>
-
-
-
-    <!-- DataTables JS -->
-    <!-- <script src="datatable/214dataTables.js"></script>
-    <script src="datatable/cdn_datatable_button_311_js_dataTables.js"></script>
-    <script src="datatable/3101jszip.min.js"></script>
-    <script src="datatable/027pdfmake.min.js"></script>
-
-    
-    <script src="datatable/311button_html5.min.js"></script>
-    <script src="datatable/311jsbuttons_print_min.js"></script> -->
-
-    <!-- DataTables CSS -->
-    <!-- <link rel="stylesheet" href="datatable/cdn_datatables_net_214_css_dataTables_dataTables.css">
-    <link rel="stylesheet" href="datatable/cdn_datatables_net_buttons_311_css_buttons_dataTables.css"> -->
+    <script src="datatable/jquery_371.js"></script>
+    <!-- Data_table Js -->
+    <script src="datatable/dataTables.js"></script>
+    <script src="datatable/dataTables_buttons.js"></script>
+    <script src="datatable/buttons_dataTables.js"></script>
+    <script src="datatable/jszip_min.js"></script>
+    <script src="datatable/pdfmake_min.js"></script>
+    <script src="datatable/buttons_html5_min.js"></script>
+    <script src="datatable/buttons_print_min.js"></script>
+    <!-- Font Thai -->
+    <script src="node_modules/pdfmake/th-sarabun.js"></script>
+    <!-- Data_table Css -->
+    <link rel="stylesheet" href="datatable/dataTables_dataTables.css">
+    <link rel="stylesheet" href="datatable/buttons_dataTables.css">
 
 
     <script>
