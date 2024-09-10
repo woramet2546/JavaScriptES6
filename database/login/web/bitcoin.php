@@ -13,7 +13,7 @@ curl_setopt_array($ch, [
 
 // ดึงข้อมูลจาก API
 $response = curl_exec($ch);
-print_r($response);
+
 
 // ตรวจสอบว่ามีข้อผิดพลาดหรือไม่
 if (curl_errno($ch)) {
@@ -31,8 +31,6 @@ if (curl_errno($ch)) {
 
 // ปิด cURL session
 curl_close($ch);
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +39,8 @@ curl_close($ch);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>API Coin</title>
-  <link rel="stylesheet" href="/boostrap5/cdn_boostrap5.css">
+  
+  <link rel="stylesheet" href="style.css">
   <style>
     .my_custom {
       width: 25%;
@@ -65,58 +64,32 @@ curl_close($ch);
       color: white;
       background: black;
     }
-
-
     /*  */
   </style>
-  <link rel="stylesheet" href="/boostrap5/cdn_boostrap5.css">
-  <!-- <link rel="stylesheet" href="//cdn.datatables.net/2.1.4/css/dataTables.dataTables.min.css"> -->
-
+    <link rel="stylesheet" href="/CDN/bootstrap5/css/bootstrap.min.css">
 
    <!-- Jquery -->
-   <script src="datatable/jquery_371.js"></script>
+   <script src="/CDN/Data_table_Export/jquery_371.js"></script>
     <!-- Data_table Js -->
-    <script src="datatable/dataTables.js"></script>
-    <script src="datatable/dataTables_buttons.js"></script>
-    <script src="datatable/buttons_dataTables.js"></script>
-    <script src="datatable/jszip_min.js"></script>
-    <script src="datatable/pdfmake_min.js"></script>
-    <script src="datatable/buttons_html5_min.js"></script>
-    <script src="datatable/buttons_print_min.js"></script>
+    <script src="/CDN/Data_table_Export/dataTables.js"></script>
+    <script src="/CDN/Data_table_Export/dataTables_buttons.js"></script>
+    <script src="/CDN/Data_table_Export/buttons_dataTables.js"></script>
+    <script src="/CDN/Data_table_Export/jszip_min.js"></script>
+    <script src="/CDN/Data_table_Export/pdfmake_min.js"></script>
+    <script src="/CDN/Data_table_Export/buttons_html5_min.js"></script>
+    <script src="/CDN/Data_table_Export/buttons_print_min.js"></script>
     <!-- Font Thai -->
-    <script src="node_modules/pdfmake/th-sarabun.js"></script>
+    <script src="/ProjectJs/node_modules/pdfmake/th-sarabun.js"></script>
     <!-- Data_table Css -->
-    <link rel="stylesheet" href="datatable/dataTables_dataTables.css">
-    <link rel="stylesheet" href="datatable/buttons_dataTables.css">
+    <link rel="stylesheet" href="/CDN/Data_table_Export/dataTables_dataTables.css">
+    <link rel="stylesheet" href="/CDN/Data_table_Export/buttons_dataTables.css">
 
 </head>
 <body class="bg-dark bg-gradient">
   <!--  -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">เปลี่ยนสกุลเงิน</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Weather.html">ตรวจสภาพอากาศ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Gold.php">ราคาทอง</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Oil.php">เช็คราคาน้ำมัน</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="bitcoin.php">ราคาเหรียญBTC</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+ <?php 
+  include 'Navbar.php';
+ ?>
   <!--  -->
   <div class="container-sm">
 
@@ -216,15 +189,20 @@ curl_close($ch);
                         'copy',
                         'excel',
                         {
-                            extend: 'pdf',
-                            customize: function(doc) {
-                                // ตั้งค่าให้ใช้ฟอนต์ THSarabun
-                                doc.defaultStyle = {
-                                    font: 'THSarabun'
-                                };
-                            }
-                        },
-                        'print'
+                                extend: 'pdf',
+                                text: 'PDF',
+                                customize: function(doc) {
+                                    // ตั้งค่าให้ใช้ฟอนต์ THSarabun
+                                    doc.defaultStyle = {
+                                        font: 'THSarabun',
+                                        fontSize: 16 // ขนาดฟอนต์ (สามารถเปลี่ยนแปลงตามความต้องการ)
+                                    };
+                                    // จัดหน้าให้เนื้อหากึ่งกลาง
+                                    doc.content[1].alignment = 'center';
+                                    // เพิ่ม margins เพื่อจัดให้อยู่กึ่งกลางหน้า
+                                }
+                            },'print',
+
                     ]
                 }
             }

@@ -45,9 +45,9 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Api ราคาน้ำมัน</title>
+    <title>API Oil</title>
     <link rel="stylesheet" href="Oli.css">
-    <link rel="stylesheet" href="/boostrap5/cdn_boostrap5.css">
+    <link rel="stylesheet" href="/CDN/bootstrap5/css/bootstrap.min.css">
     <style>
         /* @import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
@@ -86,31 +86,9 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
 
 </head>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">เปลี่ยนสกุลเงิน</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Weather.html">ตรวจสภาพอากาศ</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Gold.php">ราคาทอง</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Oil.php">เช็คราคาน้ำมัน</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link" href="bitcoin.php">ราคาเหรียญBTC</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<?php 
+    include 'Navbar.php';
+?>
 
 <body class="bg-dark bg-gradient">
     <div class="container-sm">
@@ -119,16 +97,16 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
         // print_r($data);
         // Associative array ที่เก็บ URL รูปภาพ
         $companyImages = [
-            'ptt' => 'img/ptt.png',
-            'bcp' => 'img/bangjak.png',
-            'shell' => 'img/shell.png',
-            'esso' => 'img/esso.png',
-            'caltex' => 'img/Caltex.png',
-            'irpc' => 'img/irpc.png',
-            'pt' => 'img/pt.png',
-            'susco' => 'img/susco.png',
-            'pure' => 'img/pure.png',
-            'susco_dealers' => 'img/susco.png'
+            'ptt' => '/ProjectJs/img/ptt.png',
+            'bcp' => '/ProjectJs/img/bangjak.png',
+            'shell' => '/ProjectJs/img/shell.png',
+            'esso' => '/ProjectJs/img/esso.png',
+            'caltex' => '/ProjectJs/img/Caltex.png',
+            'irpc' => '/ProjectJs/img/irpc.png',
+            'pt' => '/ProjectJs/img/pt.png',
+            'susco' => '/ProjectJs/img/susco.png',
+            'pure' => '/ProjectJs/img/pure.png',
+            'susco_dealers' => '/ProjectJs/img/susco.png'
         ];
 
         ?>
@@ -253,20 +231,22 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
 
 
     <!-- Jquery -->
-    <script src="datatable/jquery_371.js"></script>
+    <script src="/CDN/Data_table_Export/jquery_371.js"></script>
     <!-- Data_table Js -->
-    <script src="datatable/dataTables.js"></script>
-    <script src="datatable/dataTables_buttons.js"></script>
-    <script src="datatable/buttons_dataTables.js"></script>
-    <script src="datatable/jszip_min.js"></script>
-    <script src="datatable/pdfmake_min.js"></script>
-    <script src="datatable/buttons_html5_min.js"></script>
-    <script src="datatable/buttons_print_min.js"></script>
+    <script src="/CDN/Data_table_Export/dataTables.js"></script>
+    <script src="/CDN/Data_table_Export/dataTables_buttons.js"></script>
+    <script src="/CDN/Data_table_Export/buttons_dataTables.js"></script>
+    <script src="/CDN/Data_table_Export/jszip_min.js"></script>
+    <script src="/CDN/Data_table_Export/pdfmake_min.js"></script>
+    <script src="/CDN/Data_table_Export/buttons_html5_min.js"></script>
+    <script src="/CDN/Data_table_Export/buttons_print_min.js"></script>
     <!-- Font Thai -->
     <script src="node_modules/pdfmake/th-sarabun.js"></script>
     <!-- Data_table Css -->
-    <link rel="stylesheet" href="datatable/dataTables_dataTables.css">
-    <link rel="stylesheet" href="datatable/buttons_dataTables.css">
+    <link rel="stylesheet" href="/CDN/Data_table_Export/dataTables_dataTables.css">
+    <link rel="stylesheet" href="/CDN/Data_table_Export/buttons_dataTables.css">
+
+
 
 
     <script>
@@ -287,22 +267,25 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
                             'excel',
                             {
                                 extend: 'pdf',
+                                text: 'PDF',
                                 customize: function(doc) {
                                     // ตั้งค่าให้ใช้ฟอนต์ THSarabun
                                     doc.defaultStyle = {
-                                        font: 'THSarabun'
+                                        font: 'THSarabun',
+                                        fontSize: 18 // ขนาดฟอนต์ (สามารถเปลี่ยนแปลงตามความต้องการ)
                                     };
+                                    // จัดหน้าให้เนื้อหากึ่งกลาง
+                                    doc.content[1].alignment = 'center';
+                                    // เพิ่ม margins เพื่อจัดให้อยู่กึ่งกลางหน้า
                                 }
-                            },
-                            'print'
+                            },'print',
+        
                         ]
                     }
                 }
             });
         });
     </script>
-
-    <a href="testapi.php">a</a>
 </body>
 
 </html>

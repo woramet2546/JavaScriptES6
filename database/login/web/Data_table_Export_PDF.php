@@ -254,7 +254,7 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
     </div>
 
 
-    <script src="datatable/jquery-3.7.1.min.js"></script>
+    <script src="/CDN/Data_table_Export/jquery-3.7.1.min.js"></script>
     <!-- DataTables JS -->
     <script src="https://cdn.datatables.net/2.1.4/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.1.1/js/dataTables.buttons.js"></script>

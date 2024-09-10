@@ -10,7 +10,7 @@
 
 <body>
     <a href="ConnectDatabase.php" class="btn btn-primary">เชื่อมต่อ Mysql</a>
-    <a href="sqlserver.php" class="btn btn-success">เชื่อมต่อ SQL Server</a>
+    <a href="sqlserveruser.php" class="btn btn-success">เชื่อมต่อ SQL Server</a>
 </body>
 
 </html>

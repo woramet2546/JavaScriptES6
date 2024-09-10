@@ -5,38 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="/boostrap5/cdn_boostrap5.css">
+    <link rel="stylesheet" href="/CDN/bootstrap5/css/bootstrap.min.css">
 
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">เปลี่ยนสกุลเงิน</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Weather.html">ตรวจสภาพอากาศ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Gold.php">ราคาทอง</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Oil.php">เช็คราคาน้ำมัน</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link" href="bitcoin.php">ราคาเหรียญBTC</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <?php include 'Navbar.php';?>
+
     <div class="container-smm">
       <div class="container-head">
-        <img src="./img/pay.png" class="money-img" />
+        <img src="/ProjectJs/img/pay.png" class="money-img" />
         <h1>โปรแกรมแปลงสกุลเงิน</h1>
         <div class="container">
           <div class="currency">
