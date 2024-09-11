@@ -54,14 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$objResult = sqlsrv_fetch_array($objQuery, SQLSRV_FETCH_ASSOC);
 
 		if (!$objResult) {
-			echo "<script>";
-			echo "Swal.fire({
-				icon: 'error',
-				title: 'รหัสผ่านไม่ถูกต้อง',
-				text: 'กรุณาตรวจสอบชื่อผู้ใช้และรหัสผ่านอีกครั้ง',
-				showConfirmButton: true
-			});";
-			echo "</script>";
+			
 		} else {
 			// เก็บข้อมูลผู้ใช้ใน Session
 			$_SESSION["UserID"] = $objResult["UserID"];
@@ -71,42 +64,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 			// ตรวจสอบสิทธิ์ผู้ใช้
 			if ($objResult["Status"] == "ADMIN") {
-				echo "<script>";
-				echo "Swal.fire({
-					position: 'center',
-					icon: 'success',
-					title: 'Your work has been saved',
-					showConfirmButton: false,
-					timer: 1500
-				}).then(function() {
-					window.location.href = 'web/index.php';
-				});";
-				echo "</script>";
+				header( "location: web/index.php" );
+				exit(0);
 				
 			} elseif ($objResult["Status"] == "USER") {
-				echo "<script>";
-				echo "Swal.fire({
-					position: 'center',
-					icon: 'success',
-					title: 'Your work has been saved',
-					showConfirmButton: false,
-					timer: 1500
-				}).then(function() {
-					window.location.href = 'web/index.php';
-				});";
-				echo "</script>";
+				header( "location: web/index.php" );
+				exit(0);
 			}
 			exit();
 		}
 	} else {
-		echo "<script>";
-		echo "Swal.fire({
-			icon: 'warning',
-			title: 'กรุณากรอกข้อมูล',
-			text: 'ชื่อผู้ใช้และรหัสผ่านไม่สามารถเว้นว่างได้',
-			showConfirmButton: true
-		});";
-		echo "</script>";
+		echo "";
 	}
 }
 

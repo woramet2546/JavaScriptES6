@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เช็ค Username และแสดง SweetAlert</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <p>รหัส</p>
+    <input type="text" id="username" placeholder="กรอกชื่อผู้ใช้">
+    <button id="checkBtn">ตรวจสอบ</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#checkBtn').click(function() {
+                var username = $('#username').val();
+
+                if (username === 'woramet') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'สำเร็จ!',
+                        text: 'ยินดีต้อนรับคุณ woramet!'
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'ผิดพลาด!',
+                        text: 'ชื่อผู้ใช้ไม่ถูกต้อง'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

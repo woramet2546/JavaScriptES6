@@ -241,7 +241,7 @@ if (is_array($data)) { // ตรวจสอบว่าตัวแปร $data
     <script src="/CDN/Data_table_Export/buttons_html5_min.js"></script>
     <script src="/CDN/Data_table_Export/buttons_print_min.js"></script>
     <!-- Font Thai -->
-    <script src="node_modules/pdfmake/th-sarabun.js"></script>
+    <script src="/ProjectJs/node_modules/pdfmake/th-sarabun.js"></script>
     <!-- Data_table Css -->
     <link rel="stylesheet" href="/CDN/Data_table_Export/dataTables_dataTables.css">
     <link rel="stylesheet" href="/CDN/Data_table_Export/buttons_dataTables.css">
