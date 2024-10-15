@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  font-family: "Kanit", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  background: #f0f0f0;
+}
+
+.conn {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.fw-bold {
+  margin: 0;
+}
+
+.custom-span-a {
+  color: rgb(255, 10, 10);
+}
+
+.custom-span-sefa {
+  color: rgb(81, 185, 255);
+}
+
+.container-head {
+  height: 100px;
+  background: #f0f0f0;
+  position: relative;
+}
+
+.container-custom {
+  width: 100%;
+}
+
+.container-customer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
+.Navbar-custom {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: #fefefe;
+  position: relative; /* เพิ่มเพื่อซ่อนเมนู */
+}
+
+.Navbar-custom ul {
+  display: flex;
+  justify-content: center;
+}
+
+.Navbar-custom ul li {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  color: white;
+}
+
+/* table */
+
+table {
+  box-shadow: var(--box-shadow);
+}
+
+.icon .img {
+  width: 25px;
+  height: 25px;
+}
+
+.img-in-table {
+  width: 148px;
+  height: 90px;
+  transition: transform 0.2s;
+}
+
+.img-in-table:hover {
+  transform: scale(1.2);
+}
+
+.table-responsive {
+  overflow-x: auto; /* ช่วยให้สามารถเลื่อนตารางในแนวนอนได้ */
+}
+
+.table {
+  width: 100%; /* ให้ตารางใช้ความกว้างเต็ม */
+  border-collapse: collapse; /* รวมขอบของเซลล์ */
+}
+
+.table th,
+.table td {
+  padding: 12px; /* เพิ่มพื้นที่รอบๆ ข้อความ */
+  border: 1px solid #dee2e6; /* ขอบของเซลล์ */
+  text-align: left; /* จัดข้อความไปทางซ้าย */
+}
+
+.table th {
+  background-color: #f8f9fa; /* สีพื้นหลังของหัวตาราง */
+}
+
+.custom-bg {
+  background: #f8f9fa;
+}
+
+
+
+.container-custom-to {
+  padding: 20px; /* เพิ่มพื้นที่รอบๆ */
+  background-color: #ffffff; /* สีพื้นหลัง */
+  box-shadow: var(--box-shadow); /* เงา */
+  border-radius: 5px; /* มุมโค้ง */
+  margin: 10px 0; /* ระยะห่างบนและล่าง */
+}
+
+/* Media Query สำหรับขนาดหน้าจอเล็ก */
+@media (max-width: 768px) {
+  .table {
+    display: block; /* เปลี่ยนตารางเป็นบล็อก */
+    overflow-x: auto; /* ให้เลื่อนในแนวนอนได้ */
+    white-space: nowrap; /* หลีกเลี่ยงการห่อข้อความ */
+    font-size: 12px; /* ลดขนาดฟอนต์ */
+  }
+
+  .table thead {
+    display: none; /* ซ่อนหัวตาราง */
+  }
+
+  .table tr {
+    display: flex; /* ใช้ Flexbox ในแต่ละแถว */
+    flex-direction: column; /* แสดงในแนวตั้ง */
+    margin-bottom: 1rem; /* เพิ่มระยะห่างระหว่างแถว */
+    border: 1px solid #dee2e6; /* ขอบของแต่ละแถว */
+  }
+
+  .table td {
+    padding: 5px; /* เพิ่มพื้นที่รอบๆ */
+    border: 1px solid #dee2e6; /* ขอบของเซลล์ */
+    text-align: left; /* จัดข้อความไปทางซ้าย */
+    vertical-align: middle; /* จัดแนวเนื้อหาในแนวตั้ง */
+    overflow: hidden; /* ซ่อนเนื้อหาที่เกิน */
+    white-space: nowrap; /* หลีกเลี่ยงการห่อข้อความ */
+    text-overflow: ellipsis; /* แสดง '...' เมื่อข้อความเกิน */
+  }
+
+  .table img {
+    max-width: 100%; /* ทำให้รูปภาพไม่เกินขอบเซลล์ */
+    height: auto; /* ทำให้สูงเป็นอัตโนมัติ */
+  }
+
+  /* สำหรับการจัดเรียงแบบ Flexbox */
+  .table td div {
+    display: flex;
+    align-items: center; /* จัดแนวให้อยู่กลางแนวตั้ง */
+    justify-content: center; /* จัดแนวให้อยู่กลางแนวนอน */
+  }
+
+  .table td::before {
+    position: absolute; /* ใช้เพื่อจัดตำแหน่ง */
+    left: 10px; /* ระยะห่างจากซ้าย */
+    white-space: nowrap; /* หลีกเลี่ยงการห่อข้อความ */
+    font-weight: bold; /* ตัวหนา */
+  }
+
+  .Navbar-custom {
+    display: none; /* ซ่อนเมนูเมื่อไม่ใช้งาน */
+  }
+
+  .name-container {
+    display: block; /* ให้แสดงเป็นบล็อก */
+  }
+  .name-container img {
+    display: block; /* ให้ภาพแสดงใต้ชื่อ */
+    margin-top: 10px; /* ระยะห่างระหว่างชื่อและภาพ */
+  }
+  
+  
+}
+
+/* Zone Switch */
